@@ -340,14 +340,14 @@ spec:
         runAfter:
           - clone-repository-arm64
         taskRef:
-          resolver: git
           params:
-            - name: url
-              value: https://github.com/stuartwdouglas/build-definitions.git
-            - name: revision
-              value: multiarch
-            - name: pathInRepo
-              value: task/buildah-remote/0.1/buildah-remote.yaml
+            - name: name
+              value: buildah-remote
+            - name: bundle
+              value: quay.io/redhat-appstudio-tekton-catalog/task-buildah-remote:0.1@sha256:0dcd1c8593b98cc7eb083611050b49dfc9676fd0038859da3b6efbe9e64e0377
+            - name: kind
+              value: task
+          resolver: bundles
         when:
           - input: $(tasks.init.results.build)
             operator: in
@@ -377,14 +377,14 @@ spec:
         runAfter:
           - clone-repository-s390x
         taskRef:
-          resolver: git
           params:
-            - name: url
-              value: https://github.com/stuartwdouglas/build-definitions.git
-            - name: revision
-              value: multiarch
-            - name: pathInRepo
-              value: task/buildah-remote/0.1/buildah-remote.yaml
+            - name: name
+              value: buildah-remote
+            - name: bundle
+              value: quay.io/redhat-appstudio-tekton-catalog/task-buildah-remote:0.1@sha256:0dcd1c8593b98cc7eb083611050b49dfc9676fd0038859da3b6efbe9e64e0377
+            - name: kind
+              value: task
+          resolver: bundles
         when:
           - input: $(tasks.init.results.build)
             operator: in
@@ -415,14 +415,14 @@ spec:
         runAfter:
           - clone-repository-ppc64le
         taskRef:
-          resolver: git
           params:
-            - name: url
-              value: https://github.com/stuartwdouglas/build-definitions.git
-            - name: revision
-              value: multiarch
-            - name: pathInRepo
-              value: task/buildah-remote/0.1/buildah-remote.yaml
+            - name: name
+              value: buildah-remote
+            - name: bundle
+              value: quay.io/redhat-appstudio-tekton-catalog/task-buildah-remote:0.1@sha256:0dcd1c8593b98cc7eb083611050b49dfc9676fd0038859da3b6efbe9e64e0377
+            - name: kind
+              value: task
+          resolver: bundles
         when:
           - input: $(tasks.init.results.build)
             operator: in
@@ -449,14 +449,14 @@ spec:
           - build-container-s390x
           - build-container-ppc64le
         taskRef:
-          resolver: git
           params:
-            - name: url
-              value: https://github.com/stuartwdouglas/build-definitions.git
-            - name: revision
-              value: multiarch
-            - name: pathInRepo
-              value: task/build-image-manifest/0.1/build-image-manifest.yaml
+            - name: name
+              value: build-image-manifest
+            - name: bundle
+              value: quay.io/redhat-appstudio-tekton-catalog/task-build-image-manifest:0.1@sha256:3cf06bd844d8a099edc3b14b77f8b55a8869e3aa2a55f69eb1f446700aab7571
+            - name: kind
+              value: task
+          resolver: bundles
         when:
           - input: $(tasks.init.results.build)
             operator: in
